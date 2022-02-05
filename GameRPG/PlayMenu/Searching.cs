@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace GameRPG.PlayMenu
 {
-    public class Searching : ISearching
+    public class Searching 
     {
         Random random = new Random();
-        public Inventory inventory;
 
         public Searching()
         {
-            inventory = new Inventory();
+
         }
 
-        public void search(Player player)
+        public void search(Player player, Inventory inventory)
         {
             int rand = random.Next(0, 100);
 

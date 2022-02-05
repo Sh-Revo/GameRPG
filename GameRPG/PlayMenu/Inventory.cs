@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameRPG.PlayMenu
 {
-    public class Inventory : IInventory
+    public class Inventory 
     {
         public List<Item> inventories;
 
@@ -17,20 +17,34 @@ namespace GameRPG.PlayMenu
         
         public void AddInventory(Item item)
         {
-            //if (item.Id == inventories.)
-            inventories.Add(item);
+            if (inventories.Count > 0)
+            {
+                for (int i = 0; i < inventories.Count; i++)
+                {
+                    if (item.Id == inventories[i].Id)
+                    {
+                        inventories[i].Count++;
+                        break;
+                    }
+                    else if (i == inventories.Count - 1)
+                    {
+                        inventories.Add(item);
+                    }
+                }
+            }    
+            else
+            {
+                inventories.Add(item);
+            }
         }
 
         public void GetAll()
         {
-            Console.WriteLine("Items: ");
+            Console.WriteLine("Inventory: ");
             foreach (Item item in inventories)
             {
-                Console.WriteLine(item.Name);
-            }
-            
+                Console.WriteLine($"Name: {item.Name}, Count: {item.Count}");
+            }            
         }
-
-
     }
 }

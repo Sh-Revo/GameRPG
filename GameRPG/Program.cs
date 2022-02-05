@@ -1,5 +1,6 @@
 ﻿using GameRPG.PlayMenu;
 using System;
+using System.Collections.Generic;
 
 namespace GameRPG
 {
@@ -7,12 +8,14 @@ namespace GameRPG
     {
         static bool flag = true;
         static Player player;
-        
-        IHunting hunting = new Hunting();
+        static Inventory inventory;
+        static List<Item> inventories;
 
         static void Main(string[] args)
         {
             player = new Player();
+            inventory = new Inventory();
+            inventories = new List<Item>();
             FirstMenu();
 
 
@@ -35,7 +38,7 @@ namespace GameRPG
                     break;
                 default:
                     Console.WriteLine("Wrong command 1");
-                    PlayMenu();
+                    FirstMenu();
                     break;
             }
         }
@@ -50,10 +53,9 @@ namespace GameRPG
 
             ConsoleKey key = GetButton();
             Console.Clear();
-            IInformation information = new Information();
+            Information information = new Information();
             Searching searching = new Searching();
 
-            IInventory inventory = new Inventory();
             switch (key)
             {
                 case ConsoleKey.D1:                   
@@ -63,7 +65,7 @@ namespace GameRPG
                     break;
                 case ConsoleKey.D2:
                     Console.WriteLine();
-                    searching.search(player);
+                    searching.search(player, inventory);
                     PlayMenu();
                     break;
                 case ConsoleKey.D3:
@@ -72,8 +74,8 @@ namespace GameRPG
                     break;
                 case ConsoleKey.D4:
                     Console.WriteLine();
-                    searching.inventory.GetAll();
-                    //inventory.GetAll();
+                    inventory.GetAll();
+                    Console.WriteLine();
                     PlayMenu();
                     break;
                 case ConsoleKey.D0:                   

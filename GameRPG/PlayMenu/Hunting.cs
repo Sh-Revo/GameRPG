@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameRPG.PlayMenu
 {
-    public class Hunting : IHunting
+    public class Hunting
     {
     }
 }

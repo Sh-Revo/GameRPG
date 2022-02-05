@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameRPG.PlayMenu
 {
-    public class Information : IInformation
+    public class Information
     {
         public void GetInfo(Player player)
         {
