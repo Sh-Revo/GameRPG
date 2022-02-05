@@ -9,5 +9,6 @@ namespace GameRPG.PlayMenu
     public interface IInventory
     {
         public void AddInventory(Item item);
+        public void GetAll();
     }
 }

@@ -45,12 +45,15 @@ namespace GameRPG
             Console.WriteLine("1: Get info");
             Console.WriteLine("2: Search");
             Console.WriteLine("3: Hunting");
+            Console.WriteLine("4: Inventory");
             Console.WriteLine("0: Exit");
 
             ConsoleKey key = GetButton();
             Console.Clear();
             IInformation information = new Information();
-            ISearching searching = new Searching();
+            Searching searching = new Searching();
+
+            IInventory inventory = new Inventory();
             switch (key)
             {
                 case ConsoleKey.D1:                   
@@ -65,6 +68,12 @@ namespace GameRPG
                     break;
                 case ConsoleKey.D3:
                     Console.WriteLine();
+                    PlayMenu();
+                    break;
+                case ConsoleKey.D4:
+                    Console.WriteLine();
+                    searching.inventory.GetAll();
+                    //inventory.GetAll();
                     PlayMenu();
                     break;
                 case ConsoleKey.D0:                   

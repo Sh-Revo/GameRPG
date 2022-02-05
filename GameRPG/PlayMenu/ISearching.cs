@@ -8,6 +8,7 @@ namespace GameRPG.PlayMenu
 {
     public interface ISearching
     {
+        public Inventory inventory;
         public void search(Player player);
     }
 }

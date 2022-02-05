@@ -9,7 +9,13 @@ namespace GameRPG.PlayMenu
     public class Searching : ISearching
     {
         Random random = new Random();
-        Inventory inventory;
+        public Inventory inventory;
+
+        public Searching()
+        {
+            inventory = new Inventory();
+        }
+
         public void search(Player player)
         {
             int rand = random.Next(0, 100);
@@ -19,23 +25,37 @@ namespace GameRPG.PlayMenu
                 player.power--;
                 if (rand <= 5)
                 {
-                    Console.WriteLine("you found a chest\n");
+                    Console.WriteLine("you found a coin\n");
+                    inventory.AddInventory(new Item(0, "coin", 1));
                 }
                 else if (rand <= 10)
                 {
                     Console.WriteLine("you found a gem\n");
+                    inventory.AddInventory(new Item(1, "gem", 1));
                 }
                 else if (rand <= 20)
                 {
-                    Console.WriteLine("you found tree\n");
+                    Console.WriteLine("you found stick\n");
+                    inventory.AddInventory(new Item(2, "stick", 1));
                 }
-                //else if (rand <= 30)
-                //{
-                //    if (rand == 21)
-                //    {
-                //        inventory.AddInventory(0, "rock", 1);
-                //    }
-                //}
+                else if (rand <= 30)
+                {
+                    if (rand <= 24)
+                    {
+                        Console.WriteLine("you found rock\n");
+                        inventory.AddInventory(new Item(3, "rock", 1));
+                    } 
+                    else if (rand <= 28)
+                    {
+                        Console.WriteLine("you found pants\n");
+                        inventory.AddInventory(new Item(4, "pants", 1));
+                    }
+                    else if (rand <= 30)
+                    {
+                        Console.WriteLine("you found hat\n");
+                        inventory.AddInventory(new Item(5, "hat", 1));
+                    }
+                }
                 else
                 {
                     Console.WriteLine("you found nothing\n");
