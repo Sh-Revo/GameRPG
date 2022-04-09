@@ -13,11 +13,14 @@ namespace GameRPG
         private int _power = 30;
         private int _maxHealth = 100;
         private int _maxPower = 100;
+        private int _money = 0;
+
         public string name { get => _name; }
         public int health { get => _health; set => _health = value; }
         public int power { get => _power; set => _power = value; }
         public int maxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int maxPower { get => _maxPower; set => _maxPower = value; }
+        public int money { get => _money; set => _money = value; }
         public Player()
         {
 

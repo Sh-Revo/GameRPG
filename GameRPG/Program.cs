@@ -75,6 +75,18 @@ namespace GameRPG
                 case ConsoleKey.D4:
                     Console.WriteLine();
                     inventory.GetAll();
+                    Console.WriteLine("5: Sell");
+                    Console.WriteLine("Or Use Another button to continue");
+                    key = GetButton();
+                    if (key == ConsoleKey.D5)
+                    {
+                        Console.Clear();
+                        inventory.SellAll(player);
+                    } 
+                    else
+                    {
+                        Console.Clear();
+                    }
                     Console.WriteLine();
                     PlayMenu();
                     break;

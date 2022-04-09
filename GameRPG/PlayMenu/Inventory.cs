@@ -29,6 +29,7 @@ namespace GameRPG.PlayMenu
                     else if (i == inventories.Count - 1)
                     {
                         inventories.Add(item);
+                        break;
                     }
                 }
             }    
@@ -45,6 +46,30 @@ namespace GameRPG.PlayMenu
             {
                 Console.WriteLine($"Name: {item.Name}, Count: {item.Count}");
             }            
+        }
+
+        public void SellAll(Player player)
+        {
+            Console.WriteLine("\nSold!");
+            foreach (Item item in inventories)
+            {
+                if (item.Name == "coin")
+                {
+                    player.money += item.Count;
+                    item.Count = 0;
+                    continue;
+                }
+                if (item.Name == "gem")
+                {
+                    player.money += item.Count * 5;
+                    item.Count = 0;
+                    continue;
+                }
+                player.money += item.Count;
+                item.Count = 0;
+            }
+
+            inventories.Clear();
         }
     }
 }

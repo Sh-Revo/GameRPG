@@ -13,6 +13,7 @@ namespace GameRPG.PlayMenu
             Console.WriteLine("Players name: " + player.name);
             Console.WriteLine("Players health: " + player.health);
             Console.WriteLine("Players power: " + player.power);
+            Console.WriteLine("Players money: " + player.money);
         }
     }
 }
